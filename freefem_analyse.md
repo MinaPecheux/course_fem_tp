@@ -10,6 +10,12 @@ type = "docs"  # Do not modify.
 
 math = true
 
+[git]
+  icon = "github"
+  repo = "https://github.com/Bertbk/course_fem_tp"
+  issue = "https://github.com/Bertbk/course_fem_tp/issues"
+  prose = "https://prose.io/#Bertbk/course_fem_tp/edit/master/"
+
 # Add menu entry to sidebar.
 [menu.fem_tp]
   parent = "freefem"
