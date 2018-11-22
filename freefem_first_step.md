@@ -240,7 +240,7 @@ $$
   \end{array}
 \right.
 $$
-La formulation faible sera donnée par (*sans être totalement mathématiquement correct*) (nous n'avons pas encore les outils mathématiques)
+La formulation faible sera donnée par (*sans être totalement mathématiquement correcte*) (nous n'avons pas encore les outils mathématiques) :
 $$
 \left\\{
   \begin{array}{l}
@@ -250,8 +250,8 @@ $$
 \right.
 $$
 
-1. En admettant que ce problème admette une unique solution, montrez que la solution est $u(x,y) = \sin(\pi x)\sin(\pi y)$
-2. Résolvez ce problème avec FreeFem++
+1. En admettant que ce problème admette une unique solution, montrez que la solution est $u(x,y) = \sin(\pi x)\sin(\pi y)$.
+2. Résolvez ce problème avec FreeFem++.
 
 {{% /alert %}}
 

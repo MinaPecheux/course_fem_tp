@@ -52,11 +52,11 @@ La solution exacte de ce problème est $u(x,y) = \sin(\pi x)\sin(\pi y)$.
 
 ## Rappel
 
-Notons $h$ le diamètre du plus grand triangle du maillage. Si la solution exacte $u$ est dans $H^{k+1}(\Omega)$, nous vu que la convergence de la méthode des éléments finis $\Pb\_k$ étaient la suivante :
+Notons $h$ le diamètre du plus grand triangle du maillage. Si la solution exacte $u$ est dans $H^{k+1}(\Omega)$, nous avons vu que la convergence de la méthode des éléments finis $\Pb\_k$ était la suivante :
 $$
 \normH{u-\uh}  = \normH{\eh} \leq C h^k \norm{u}\_{H^{k+1}(\Omega)},
 $$
-où $\uh$ est la solution exacte du problème approché et $\eh = u-\uh$ est l'erreur commise. Autrement dit, en $\Pb\_1$ (*i.e.* $k=1$), à un maillage donné, si nous souhaitons obtenir une précision 10 fois supérieur, nous devons raffiner le maillage 10 plus finalement (*i.e.* diviser $h$ par 10). En $\Pb\_2$, il nous suffirait de diviser $h$ par $\sqrt{10} \sim 3.16$).
+où $\uh$ est la solution exacte du problème approché et $\eh = u-\uh$ est l'erreur commise. Autrement dit, en $\Pb\_1$ (*i.e.* $k=1$), à un maillage donné, si nous souhaitons obtenir une précision 10 fois supérieure, nous devons raffiner le maillage 10 plus finalement (*i.e.* diviser $h$ par 10). En $\Pb\_2$, il nous suffirait de diviser $h$ par $\sqrt{10} \sim 3.16$).
 
 En pratique, cette estimation est plutôt difficile à utiliser (du fait des normes). Nous utiliserons plutôt cette estimation, qui en découle (la constante $C$ est différente naturellement) :
 \begin{equation}
@@ -139,7 +139,7 @@ Nous avons vu (ou admettons) que cette formulation variationnelle (qui n'en est 
 
 Pour résoudre la formulation variationnelle, nous utiliserons directement `solve` (si `uh` et `vh` sont les variables définies sur votre espace fonctionnel) plutôt que de passer par `varf` et les `matrix` :
 ```cpp
-  solve NomDuProblem(uh, vh, solver=LU) = int2D(...) +...;
+  solve NomDuProbleme(uh, vh, solver=LU) = int2D(...) +...;
 ```
 Avec cette commande, la solution du problème est directement stockée dans `uh`, et il n'est plus besoin de construire la matrice et le membre de droite (ni la `varf`). Le terme `solver=LU` est ici utilisé pour forcer la résolution avec un solveur direct plutôt qu'itératif.
 
@@ -153,13 +153,13 @@ Nous arrivons maintenant au cœur de notre problème : le calcul de l'erreur ent
 La quantité qui nous intéresse est $\frac{\normL{uref -uh}}{h}$, qui se calcule ainsi :
 ```cpp
   Vhref uuh = uh; //Interpolation de uh sur le maillage de référence
-  real errL2 = sqrt( int2d(Thref)((uuh - uex)^2))/h; // Calcul de la norme divisée par h
+  real errL2 = sqrt(int2d(Thref)((uuh - uex)^2))/h; // Calcul de la norme divisée par h
 ```
 
 La quantité `errL2` est obtenue, mathématiquement, par multiplication de la matrice de masse de `Vhref` par la valeur absolue de la fonction `uuh-uex` mise au carré. Autrement dit, c'est juste l'intégration de |`uu-uex`|$^2$ sur le domaine $\Omega$, avec une précision d'intégration donnée par la finesse du maillage `Thref`. C'est donc bien ce que l'on veut !
 
 {{% alert exercise %}}
-Pour votre cas, calculez, l'erreur en norme $\Lo$, le tout divisée par $h$ (comme dans \eqref{eq:erreur}). Affichez ensuite cette quantité à l'écran avec la commande `cout` (comme en C++). Dans la suite, quand nous parlerons de "l'erreur relative $L^2$" nous entendrons cette quantité, c'est à dire l'erreur divisée par $h$.
+Pour votre cas, calculez l'erreur en norme $\Lo$, le tout divisé par $h$ (comme dans \eqref{eq:erreur}). Affichez ensuite cette quantité à l'écran avec la commande `cout` (comme en C++). Dans la suite, quand nous parlerons de "l'erreur relative $L^2$" nous entendrons cette quantité, c'est à dire l'erreur divisée par $h$.
 {{% /alert %}}
 
 
@@ -172,11 +172,11 @@ On trouvera dans la section dédiée [des commandes et informations utiles]({{< 
 {{% /alert %}}
 
 {{% alert exercise %}}
-  Modifiez votre code en ajoutant une boucle pour que, à chaque itération :
+  Modifiez votre code en ajoutant une boucle pour que, à chaque itération, on est :
 
-- Résolution du problème approché pour un maillage avec `nx = ny = 5, 10, 15, ..., 100`
-- Calcul de l'erreur
-- Stockage de `h` et de l'erreur dans un fichier
+- la résolution du problème approché pour un maillage avec `nx = ny = 5, 10, 15, ..., 100`
+- le calcul de l'erreur
+- le stockage de `h` et de l'erreur dans un fichier
   
 {{% /alert %}}
 
@@ -186,7 +186,7 @@ On trouvera dans la section dédiée [des commandes et informations utiles]({{< 
   
 - Affichez la en échelle $\log-\log$
 - Normalisez la : divisez chaque valeur de $\eh$ par $\max{\eh}$, de sorte que la plus haute valeur soit 1, de même pour les valeurs $h$ par rapport à leur max.
-- Affichez sur la même courbe (en pointillé par exemple), la courbe $y=x$ qui correspond à $\eh=h$. 
+- Affichez sur la même courbe (en pointillés par exemple), la courbe $y=x$ qui correspond à $\eh=h$. 
 
 Les deux premiers points peuvent être effectués dans FreeFem++ de sorte que les données du fichier de sortie soient déjà normalisés et en échelle $\log-\log$.
 {{% /alert %}} 
@@ -220,7 +220,7 @@ $$
 \right.
 $$
 
-La solution exacte est $u(x,y) = x^2 + y^2$
+La solution exacte est $u(x,y) = x^2 + y^2$.
 
 {{% alert exercise %}}
 Copiez votre fichier `analyse.edp` dans `analyse_disk.edp` et adaptez le au cas du cercle. Nous supposerons que la valeur de $h$ est toujours obtenue par $\sqrt{2}n$, même si cela est sans doute légèrement faux. Obtenez les courbes de convergence pour $\Pb\_1$ et $\Pb\_2$. Commentez.
