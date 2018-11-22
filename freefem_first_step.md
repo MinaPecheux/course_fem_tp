@@ -2,7 +2,7 @@
 title = "Premiers pas"
 
 date = 2018-09-09T00:00:00
-# lastmod = 2018-09-09T00:00:00
+# lastmod = 2018-11-21T00:00:00
 
 draft = false  # Is this a draft? true/false
 toc = true  # Show table of contents? true/false
@@ -39,7 +39,7 @@ $\newcommand{\norm}[1]{\left\\|#1\right\\|}$
 $\newcommand{\normL}[1]{\norm{#1}\_{\Lo}}$
 $\newcommand{\normH}[1]{\norm{#1}\_{\Ho}}$
 
-FreeFem++ fournit une infrastructure permettant de manipuler relativement facilement les concepts liés à la méthode des éléments finis : espaces fonctionnelles, formulations variationnelles, résolution,... Le but de cette section est de comprendre comment se servir des briques de base de FreeFem++ pour résoudre un problème simple.
+FreeFem++ fournit une infrastructure permettant de manipuler relativement facilement les concepts liés à la méthode des éléments finis : espaces fonctionnels, formulations variationnelles, résolution,... Le but de cette section est de comprendre comment se servir des briques de base de FreeFem++ pour résoudre un problème simple.
 
 ## Problème modèle
 
@@ -57,7 +57,7 @@ La formulation faible associée est
 \label{eq:pb}
 \left\\{
   \begin{array}{l}
-    \text{Trouver }u\in\Ho \text{ tel que },\\
+    \text{Trouver }u\in\Ho \text{ tel que},\\
       \forall v\in\Ho, \quad a(u,v) = \ell(v),
   \end{array}
 \right.
@@ -102,7 +102,7 @@ plot(Th);
 {{< figure library="1" src="/course/fem_tp/square.png" title="Carré unitaire avec 10 points de grille dans chaque direction (repris de la documentation officielle)" numbered="true" >}}
 
 {{% alert note %}}
-Le langage propre à FreeFem++ est un idiome du C++ : sa syntaxe ressemble fortement à celle du C++. Par exemple, `mesh` est un type (comme une classe). Les nombres ont deux type: `real` ou `int`. Certaines fonctions et fonctionnalités standard sont accessibles dans FreeFem++ comme : 
+Le langage propre à FreeFem++ est un idiome du C++ : sa syntaxe ressemble fortement à celle du C++. Par exemple, `mesh` est un type (comme une classe). Les nombres ont deux types : `real` ou `int`. Certaines fonctions et fonctionnalités standard sont accessibles dans FreeFem++ comme : 
 
 - Affichage : `cout` (sans le `std::`)
 - Conditionnel : `for`, `if`
@@ -113,11 +113,11 @@ De nombreuses autres sont présentées [dans ce tutoriel]({{< relref "freefem_an
 
 ## Fonctions analytiques : `func`
 
-Pour définir une fonction analytique dans FreeFem++, nous utilisons le type `func`, et nous nous aidons des mots syntaxiques `x`,`y` et `z`, qui représentent respectivement la coordonnée x,y et z. Par exemple la commande suivante définie la fonction $g(x,y) = x^2 + y^2$ :
+Pour définir une fonction analytique dans FreeFem++, nous utilisons le type `func`, et nous nous aidons des mots syntaxiques `x`, `y` et `z`, qui représentent respectivement la coordonnée x, y et z. Par exemple la commande suivante définit la fonction $g(x,y) = x^2 + y^2$ :
 ```cpp
 func g = x*x + y*y; // Définition de g
 ```
-Les fonctions mathématiques usuelles comme le sinus, cosinus, exponentiel, ... sont disponibles sous FreeFem++.
+Les fonctions mathématiques usuelles comme le sinus, cosinus, exponentielle,... sont disponibles sous FreeFem++.
 
 
 ## Espace fonctionnel : `fespace`
@@ -147,7 +147,7 @@ plot(gh, fill=true, dim=3, wait=true); // Affichage
 {{% alert exercise %}}
 Recopiez le code ci-dessus (ainsi que ce qui concerne l'espace fonctionnel) pour afficher la fonction $g$, puis :
 
-1. Modifiez l'espace fonctionnel pour prendre des éléments finis $\Pb\_0$ (constant par morceau), observez le résultat sur l'interpolé de $g$.
+1. Modifiez l'espace fonctionnel pour prendre des éléments finis $\Pb\_0$ (constant par morceau), observez le résultat sur l'interpolée de $g$.
 2. De la même manière, affichez l'interpolation de la fonction $h(x,y) = \sin(\pi x).\sin(\pi y)$, en $\Pb\_1$ et $\Pb\_2$.
 {{% /alert %}}
 
@@ -162,20 +162,20 @@ plot(gh, wait=true, fill=true);
 
 De plus, le nombre de degrés de liberté (*ddl* en français, *dof* en anglais) d'une fonction éléments finis (respectivement d'un `fespace`) s'obtient par le paramètre `n` (respectivement `ndof`) :
 ```cpp
-cout << "g_EF[].n = "<< g_EF[].n << ", Vh.ndof = "<< Vh.ndof <<endl;
+cout << "gh[].n = " << gh[].n << ", Vh.ndof = " << Vh.ndof << endl;
 ```
 
-La valeur d'une fonctions éléments finis en un dof particulier peut être modifier directement dans le tableau de valeur :
+La valeur d'une fonction éléments finis en un *dof* particulier peut être modifiée directement dans le tableau de valeurs :
 ```cpp
-g_EF[][10] = 1.0;  // Mise à 1.0 du dof numéro 10
+gh[][10] = 1.0;  // Mise à 1.0 du dof numéro 10
 ```
 
 {{% alert exercise %}}
 Amusons nous un peu :
 
-1. Comparez le nombre de degrés de liberté selon l'ordre des éléments finis, c'est-à-dire entre $\Pb\_0, \Pb\_1$ et $\Pb\_2$. Vérifiez aussi que pour les éléments finis $\Pb\_0$ nous avons bien autant de dof (degrees of freedom) que de triangles et pour $\Pb\_1$ autant que de sommets
+1. Comparez le nombre de degrés de liberté selon l'ordre des éléments finis, c'est-à-dire entre $\Pb\_0, \Pb\_1$ et $\Pb\_2$. Vérifiez aussi que pour les éléments finis $\Pb\_0$ nous avons bien autant de *dof* (degrees of freedom) que de triangles et pour $\Pb\_1$ autant que de sommets.
 2. Affichez une fonction de forme $\Pb\_1$ associée à un nœud quelconque (que vous choisissez).
-3. Faites de même pour $\Pb\_0$
+3. Faites de même pour $\Pb\_0$.
 {{% /alert %}}
 
 
@@ -192,7 +192,7 @@ Dans la quantité `varf(uh,vh)`, le **premier** argument est **l'inconnue** tand
 
 Il est possible de résoudre directement une formulation variationnelle sans passer par la matrice en utilisant `solve` à la place de `varf` :
 ```cpp
-Vh u,v; // v sera la fonction test
+Vh uh,vh; // vh sera la fonction test
 solve MonProbleme(uh,vh) = int2d(Th)(dx(uh)*dx(vh)) + int2d(Th)(dy(uh)*dy(vh)) + int2d(Th)(uh*vh) - int2d(Th)(f*vh);
 ```
 Cette commande est (très) pratique, cependant, nous perdons la main sur certains éléments.
@@ -228,16 +228,16 @@ Résolvez le problème avec FreeFem++ avec la commande `solve` et en extrayant l
 
 ### Conditions aux limites
 
-Pour calculer une integrale sur un bord 1D (ligne) de label `L`, nous utiliserons la commande
+Pour calculer une intégrale sur un bord 1D (ligne) de label `L`, nous utiliserons la commande
 ```cpp
 int1d(Th, L)(...)
 ```
-Pour imposer à l'inconnue `uh` de valoir `g` sur un bord portant de label `L`, nous utiliserons la commande
+Pour imposer à l'inconnue `uh` de valoir `g` sur un bord portant le label `L`, nous utiliserons la commande
 ```cpp
 + on(L, uh=g)
 ```
 {{% alert exercise %}}
-Intéresserons nous au problème de Poisson suivant dans $\Omega$ le carré [0,1]x[0,1], avec condition de Dirichlet et $f(x,y) = 2\pi^2\sin(\pi x)\sin(\pi y)$ : 
+Intéressons nous au problème de Poisson suivant dans $\Omega$ le carré [0,1]x[0,1], avec condition de Dirichlet et $f(x,y) = 2\pi^2\sin(\pi x)\sin(\pi y)$ : 
 $$
 \left\\{
   \begin{array}{r c l l}
@@ -246,7 +246,7 @@ $$
   \end{array}
 \right.
 $$
-La formulation faible sera donnée par (*sans être totalement mathématiquement correct*) (nous n'avons pas encore les outils mathématiques)
+La formulation faible sera donnée par (*sans être totalement mathématiquement correcte*) (nous n'avons pas encore les outils mathématiques) :
 $$
 \left\\{
   \begin{array}{l}
@@ -256,15 +256,15 @@ $$
 \right.
 $$
 
-1. En admettant que ce problème admette une unique solution, montrez que la solution est $u(x,y) = \sin(\pi x)\sin(\pi y)$
-2. Résolvez ce problème avec FreeFem++
+1. En admettant que ce problème admette une unique solution, montrez que la solution est $u(x,y) = \sin(\pi x)\sin(\pi y)$.
+2. Résolvez ce problème avec FreeFem++.
 
 {{% /alert %}}
 
 ## Exercices supplémentaires
 
 {{% alert exercise %}}
-Décomposez la frontière $\partial\Omega$ en 4 bords, $\Gamma\_1,\Gamma\_2,\Gamma\_3$ et $\Gamma\_4$.   Résoudre le problème de Poisson suivant $f(x,y) = 2\pi^2\sin(\pi x)\sin(\pi y)$  : 
+Décomposer la frontière $\partial\Omega$ en 4 bords, $\Gamma\_1,\Gamma\_2,\Gamma\_3$ et $\Gamma\_4$, puis résoudre le problème de Poisson suivant $f(x,y) = 2\pi^2\sin(\pi x)\sin(\pi y)$  : 
 $$
 \left\\{
   \begin{array}{r c l l}

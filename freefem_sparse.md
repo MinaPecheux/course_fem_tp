@@ -43,15 +43,15 @@ $\newcommand{\normH}[1]{\norm{#1}\_{\Ho}}$
 
 Analysons maintenant la matrice du système linéaire et notamment son caractère creux : l'est-il vraiment ? Nous en avons parlé en cours, mais nous avons ici une très bonne occasion de l'observer par nous même (*aka* l'enseignant ne raconte pas (que) de la daube).
 
-## Nombre de coefficiens Non-Zéro (nnz)
+## Nombre de coefficients Non-Zéro (nnz)
 
 Dans FreeFem++, une `matrix A` possède différents paramètres :
 
 - `A.n` : taille de la matrice (dans une direction). En $\Pb\_1$ cette valeur est égale au nombre de sommets du maillage. La matrice possède donc $n^2$ coefficients.
-- `A.nnz` : Nombre de coefficients non nulles de la matrice.
+- `A.nnz` : nombre de coefficients non nuls de la matrice.
 
 
-## C'est parti
+## C'est parti !
 
 Nous réutilisons les briques précédemment introduites. 
 

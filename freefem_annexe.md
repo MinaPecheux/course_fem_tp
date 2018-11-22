@@ -56,7 +56,7 @@ Pour écrire dans un fichier, on utilise `ofstream`, comme en C++ (sans les `std
   sortie << "pi*pi=" << pipi << endl;
 ```
 
-Attention, il ne faut surtout pas cloturer les `ofstream` car FreeFem++ le fait pour nous en sortie !
+Attention, il ne faut surtout pas clôturer les `ofstream` car FreeFem++ le fait pour nous en sortie !
 
 #### Portée d'une variable (=durée de vie)
 
@@ -95,8 +95,8 @@ Nous pouvons définir des tableaux dynamiques dans FreeFem++, un peu comme en C.
     t[i] = cos(pi/n*i);
   cout << t;            // Affichage de tout le tableau
   cout << t[0] << endl; // Affiche de la première valeur
-  cout << "t_max=" << t.max<<endl;
-  cout << "t_min=" << t.min<<endl;
+  cout << "t_max=" << t.max << endl;
+  cout << "t_min=" << t.min << endl;
 ```
 
 La notation "à la Matlab" est valable aussi :
@@ -116,7 +116,7 @@ Les tableaux peuvents être ajoutés, soustraits, divisés/multipliés point à 
 
 ### GnuPlot
 
-Si vous voulez tester GnuPlot pour afficher vos courbes, voici quelques notes pour afficher des courbes à partir de fichier de données. Nous supposons que le fichier se nomme `data.txt`, contienne 100 valeurs et soit de la forme suivante
+Si vous voulez tester GnuPlot pour afficher vos courbes, voici quelques notes pour afficher des courbes à partir de fichier de données. Nous supposons que le fichier se nomme `data.txt`, contienne 100 valeurs et soit de la forme suivante :
 ```
 x1    y1
 x2    y2
@@ -126,9 +126,9 @@ x4    y4
 x100 y100
 ```
 
-Une possibilité\footnote{Voir la documentation \url{http://www.gnuplot.info/docs_5.0/gnuplot.pdf}, et aussi des exemples :\\ \url{http://gnuplot.sourceforge.net/demo/lines_arrows.html}\\\url{http://www.gnuplotting.org/plotting-data/}\\\url{http://www.gnuplotting.org/plotting-functions/}} est alors d'écrire un fichier gnuplot. Ouvrez un fichier, par exemple `affiche.gnu`, et placez ceci dans son en-tête :
+Une possibilité\footnote{Voir la documentation \url{http://www.gnuplot.info/docs_5.0/gnuplot.pdf}, et aussi des exemples :\\ \url{http://gnuplot.sourceforge.net/demo/lines_arrows.html}\url{http://www.gnuplotting.org/plotting-data/}\url{http://www.gnuplotting.org/plotting-functions/}} est alors d'écrire un fichier gnuplot. Ouvrez un fichier, par exemple `affiche.gnu`, et placez ceci dans son en-tête :
 ```gnuplot
-  #En tete de votre script pour pouvoir le lancer depuis un terminal
+# En tete de votre script pour pouvoir le lancer depuis un terminal
 set terminal wxt size 700,524 enhanced font 'Verdana,10' persist
 ```
 Ensuite, pour afficher la courbe :
@@ -136,18 +136,20 @@ Ensuite, pour afficher la courbe :
 plot 'data.txt'
 ```
 Lancez le code depuis le terminal avec la commande suivante :
-\begin{lstlisting}[language=bertbash]
+
+```bertbash
 gnuplot affiche.gnu
 ```
+
 Vous devriez voir apparaître une courbe, ou plutôt, uniquement les points. Pour tracer la courbe (droite) entre les points, nous ajoutons des options :
 ```gnuplot
 plot 'data.txt' with linespoints
 ```
-Pour obtenir une courbe en pointillées :
+Pour obtenir une courbe en pointillés :
 ```gnuplot
 plot 'data.txt' dashtype 2 with linespoints
 ```
-Vous pouvez modifier le 2 pour d'autres valeurs (3, 4,...) et observez les différentes possibilités. La valeur 1 est une ligne solide. Nous pouvons aussi directement, comme dans Matlab, proposer un `dashtype` :
+Vous pouvez modifier le 2 pour d'autres valeurs (3, 4,...) et observer les différentes possibilités. La valeur 1 est une ligne solide. Nous pouvons aussi directement, comme dans Matlab, proposer un `dashtype` :
 ```gnuplot
 plot 'data.txt' dashtype '-.' with linespoints
 ```
@@ -158,7 +160,7 @@ Pas de légende :
 ```gnuplot
 plot 'data.txt' notitle
 ```
-Avec un joli titre 
+Avec un joli titre :
 ```gnuplot
 plot 'data.txt' title 'Ma courbe'
 ```
@@ -180,7 +182,7 @@ Par exemple :
   plot 'data1.txt' with linespoints \
   'data2.txt' with linespoints
 ```
-'
+
 #### Afficher des fonctions
 
 Pour afficher $y=x$ :
