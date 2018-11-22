@@ -172,7 +172,7 @@ On trouvera dans la section dédiée [des commandes et informations utiles]({{< 
 {{% /alert %}}
 
 {{% alert exercise %}}
-  Modifiez votre code en ajoutant une boucle pour que, à chaque itération, on est :
+  Modifiez votre code en ajoutant une boucle pour que, à chaque itération, on ait :
 
 - la résolution du problème approché pour un maillage avec `nx = ny = 5, 10, 15, ..., 100`
 - le calcul de l'erreur
