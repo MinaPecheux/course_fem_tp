@@ -229,7 +229,7 @@ $$
 La solution exacte est $u(x,y) = x^2 + y^2$.
 
 {{% alert exercise %}}
-Copiez votre fichier `analyse.edp` dans `analyse_disk.edp` et adaptez le au cas du cercle. Nous supposerons que la valeur de $h$ est toujours obtenue par $\frac{sqrt{2}}{n}$, même si cela est sans doute légèrement faux. Obtenez les courbes de convergence pour $\Pb\_1$ et $\Pb\_2$. Commentez.
+Copiez votre fichier `analyse.edp` dans `analyse_disk.edp` et adaptez le au cas du cercle. Nous supposerons que la valeur de $h$ est toujours obtenue par $\frac{\sqrt{2}}{n}$, même si cela est sans doute légèrement faux. Obtenez les courbes de convergence pour $\Pb\_1$ et $\Pb\_2$. Commentez.
 {{% /alert %}}
 
 
