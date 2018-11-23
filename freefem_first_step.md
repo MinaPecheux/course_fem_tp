@@ -204,7 +204,7 @@ Nous pouvons construire la matrice du système linéaire ainsi que le membre de 
 matrix A = MonProbleme(Vh, Vh);
 Vh b, solution;
 b[] = MonProbleme(0, Vh);
-solution[] = A^−1 * b[];
+solution[] = A^-1 * b[];
 plot(solution, wait = true, cmm = "Solution", value = true, fill = true, dim = 3);
 ```
 
