@@ -10,6 +10,12 @@ type = "docs"  # Do not modify.
 
 math = true
 
+[git]
+  icon = "github"
+  repo = "https://github.com/Bertbk/course_fem_tp"
+  issue = "https://github.com/Bertbk/course_fem_tp/issues"
+  prose = "https://prose.io/#Bertbk/course_fem_tp/edit/master/"
+
 # Add menu entry to sidebar.
 [menu.fem_tp]
   parent = "freefem"
@@ -198,7 +204,7 @@ Nous pouvons construire la matrice du système linéaire ainsi que le membre de 
 matrix A = MonProbleme(Vh, Vh);
 Vh b, solution;
 b[] = MonProbleme(0, Vh);
-solution[] = A^−1 * b[];
+solution[] = A^-1 * b[];
 plot(solution, wait = true, cmm = "Solution", value = true, fill = true, dim = 3);
 ```
 

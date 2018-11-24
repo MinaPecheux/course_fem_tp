@@ -10,6 +10,12 @@ type = "docs"  # Do not modify.
 
 math = true
 
+[git]
+  icon = "github"
+  repo = "https://github.com/Bertbk/course_fem_tp"
+  issue = "https://github.com/Bertbk/course_fem_tp/issues"
+  prose = "https://prose.io/#Bertbk/course_fem_tp/edit/master/"
+
 # Add menu entry to sidebar.
 [menu.fem_tp]
   parent = "freefem"
@@ -223,7 +229,7 @@ $$
 La solution exacte est $u(x,y) = x^2 + y^2$.
 
 {{% alert exercise %}}
-Copiez votre fichier `analyse.edp` dans `analyse_disk.edp` et adaptez le au cas du cercle. Nous supposerons que la valeur de $h$ est toujours obtenue par $\sqrt{2}n$, même si cela est sans doute légèrement faux. Obtenez les courbes de convergence pour $\Pb\_1$ et $\Pb\_2$. Commentez.
+Copiez votre fichier `analyse.edp` dans `analyse_disk.edp` et adaptez le au cas du cercle. Nous supposerons que la valeur de $h$ est toujours obtenue par $\frac{\sqrt{2}}{n}$, même si cela est sans doute légèrement faux. Obtenez les courbes de convergence pour $\Pb\_1$ et $\Pb\_2$. Commentez.
 {{% /alert %}}
 
 
