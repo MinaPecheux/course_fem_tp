@@ -99,7 +99,7 @@ Pour afficher le maillage, utilisez simplement
 plot(Th);
 ```
 
-{{< figure library="1" src="/course/fem_tp/square.png" title="Carré unitaire avec 10 points de grille dans chaque direction (repris de la documentation officielle)" numbered="true" >}}
+{{< figure src="../square.png" title="Carré unitaire avec 10 points de grille dans chaque direction (repris de la documentation officielle)" numbered="true" >}}
 
 {{% alert note %}}
 Le langage propre à FreeFem++ est un idiome du C++ : sa syntaxe ressemble fortement à celle du C++. Par exemple, `mesh` est un type (comme une classe). Les nombres ont deux types : `real` ou `int`. Certaines fonctions et fonctionnalités standard sont accessibles dans FreeFem++ comme : 
