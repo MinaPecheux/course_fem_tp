@@ -37,3 +37,38 @@ Pour cette partie nous utilisons deux logiciels :
 ## Partie 2 : l'assemblage en Python
 
 En cours de construction...
+
+## Sur les machines de Polytech...
+
+### GMSH
+Installé et exécutable depuis le terminal
+```
+gmsh
+```
+
+### FreeFem++
+
+Pour l'exécuter :
+```
+/opt/freefem/bin/FreeFem++
+```
+Vous pouvez ajouter un alias par exemple
+```
+alias ff=/opt/freefem/bin/FreeFem++
+```
+
+Pour lire un fichier GMSH dans FreeFem++, nous utilisons le module `load("gmsh)`. Pour cela, vous devez ajouter un lien vers les modules de FreeFem++
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/freefem/lib/ff++/3.61/lib
+```
+ou copiez le fichier suivant dans votre dossier courant :
+```
+/opt/freefem/lib/ff++/3.61/lib/gmsh.so
+```
+
+Vous pouvez bien entendu automatiser tout cela dans votre `.bash_profile` à la racine de votre Home :
+```
+#.bash_profile
+alias ff=/opt/freefem/bin/FreeFem++
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/freefem/lib/ff++/3.61/lib
+```
