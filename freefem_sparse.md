@@ -4,7 +4,7 @@ title = "Matrice creuse ?"
 date = 2018-09-09T00:00:00
 # lastmod = 2018-09-09T00:00:00
 
-draft = false  # Is this a draft? true/false
+draft = true  # Is this a draft? true/false
 toc = true  # Show table of contents? true/false
 type = "docs"  # Do not modify.
 
@@ -57,31 +57,11 @@ Nous réutilisons les briques précédemment introduites.
 
 {{% alert exercise %}}
 Ouvrez un nouveau fichier `sparse.edp` dans lequel :
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-ge du carré unité
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
- construisez un espace éléments finis `P1` ainsi que la formulation faible du problème de Dirichlet. Au lieu de   Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-ns ici une `varf` :
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-.)...;
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
 
 - Construisez la `matrix` de cette `varf` (voir TP1). Nous appellerons cette matrice `A`.
 - Calculez le rapport $nnz/n^2$ entre le nombre de coefficients non nul de la matrice et son nombre total de coefficients.
-    
 {{% /alert %}}
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
 
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
- boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin   Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
- maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de   Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
-
-  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de $h$.
+{{% alert exercise %}}
+  Modifiez votre code pour ajouter une boucle portant sur la finesse de maillage : partant d'un maillage très grossier à un très fin ($nx= 100$ par exemple). Pour chaque maillage, stockez dans un fichier le ratio $100.nnz/n^2$, puis, à la fin, affichez la courbe de ce ratio en fonction de la finesse de maille h.
+{{% /alert %}}
