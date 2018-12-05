@@ -90,6 +90,59 @@ Lancez le code ci-dessus dans FreeFem++, et puis :
 Nous rappelons qu'[une page du tutoriel GMSH]({{<ref "/course/gmsh/basics_meshformatv2.md">}}) est dédiée aux labels `Physical`.
 {{% /alert %}}
 
-## Exercice
+## Exercices
 
-<!-- FreeFem++ fluide-->
+### Diffraction accoustique
+
+#### Disque
+
+En dimension 2, dessiner un cercle de rayon 1, noté $\Gamma$, entouré d'un cercle de même centre et de rayon 3, noté $\Gamma^{\infty}$. Le domaine de calcul, $\Omega$ est le domaine contenu entre $\Gamma$ et $\Gamma^{\infty}$. Nous cherchons à calculer l'onde diffractée $u$ (complexe !) par une onde incidente $u^{inc}$ sur $\Gamma$, solution de l'équation de Helmholtz :
+$$
+\left\\{
+  \begin{array}{r c l l}
+    \Delta u + k^2 u & =& 0 & (\Omega)\\\\\\
+    u & = & - u^{inc} & (\Gamma)\\\\\\
+    \dn u + iku & =& 0 & (\Gamma^{\infty})
+  \end{array}
+\right.
+$$
+Le nombre d'onde $k$ sera fixé à $2\pi$ dans un premier temps. Le pas de maillage $h$ dépend du nombre d'onde et nous choisirons $h = \frac{2\pi}{kn\_{\lambda}}$ avec $n\_{\lambda} = 15$. L'onde incidente sera plane et de direction $\alpha \in [0,2\pi]$ : $u^{inc}(x,y) =e^{ik(x\cos(\alpha) + y\sin(\alpha))}$. La quantité à afficher est le champ total physique $u\_t = u + u^{inc}$. Pour gagner un peu de mémoire, **ne maillez pas le disque intérieur** ! 
+
+{{< figure src="../disk.svg" title="Sous-marin 2D" numbered="true" width="500px">}}
+
+
+{{% alert note %}}
+Pour avoir des quantités complexes dans FreeFem++, il suffit de "templater" les espaces fonctionnels (comme en C++) et le $i$ complexe est obtenu par `1i` :
+```
+[...]
+//1i représente le i complexe :
+func uinc = exp(1i*k*(x*cos(alpha) + y*sin(alpha)));
+[...]
+Vh<complex> uh,vh;
+[...]
+// Pour obtenir les parties réelles, valeur absolue :
+Vh<complex> uabs = abs(uh + uinc);
+Vh<complex> ure = real(uh);
+```
+Vous pouvez exporter le résultat au format GMSH (mais Paraview fait un meilleur boulot !) avec 
+```
+//Exporter en GMSH (avec gmshExport.idp)
+gmshExport(Th, uh[], "uh.pos");
+gmshExport(Th, ure[], "ure.pos");
+gmshExport(Th, uabs[], "uabs.pos");
+```
+{{% /alert %}}
+
+#### Plusieurs disques
+
+Faites de même avec plusieurs disques, ou alors un objet de forme différente. Le bord $\Gamma$ sera alors l'union des bords de chaque obstacle.
+
+#### Sous-marin
+
+Toujours en dimension 2, dessiner un (joli) sous-marin entouré d'une ellipse. Faites en sorte que la longueur du sous-marin soit égale à 1. Le domaine de calcul, $\Omega$ est situé entre le sous-marin et l'ellipse. Le bord du sous-marin est noté $\Gamma$ et l'ellipse $\Gamma^{\infty}$. Prenez $R1$ et $R2$ suffisamment grand (mais pas trop !). Les équations sont les même que précédemment et comme pour les disques, évitez de mailler le sous-marin !
+
+{{< figure src="../submarine.svg" title="Sous-marin 2D" numbered="true" >}}
+
+
+### Mécanique des fluides
+

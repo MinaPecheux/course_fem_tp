@@ -48,16 +48,17 @@ gmsh
 
 ### FreeFem++
 
-Pour l'exécuter :
+Pour l'exécuter (attention aux majuscules) :
 ```
-/opt/freefem/bin/FreeFem++
+FreeFem++
 ```
-Vous pouvez ajouter un alias par exemple
+(et a priori tout fonctionne)
+Vous pouvez ajouter un alias pour simplifier, par exemple
 ```
-alias ff=/opt/freefem/bin/FreeFem++
+alias ff=FreeFem++
 ```
 
-Pour lire un fichier GMSH dans FreeFem++, nous utilisons le module `load("gmsh)`. Pour cela, vous devez ajouter un lien vers les modules de FreeFem++
+<!-- Pour lire un fichier GMSH dans FreeFem++, nous utilisons le module `load("gmsh)`. Pour cela, vous devez ajouter un lien vers les modules de FreeFem++
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/freefem/lib/ff++/3.61/lib
 ```
@@ -71,4 +72,4 @@ Vous pouvez bien entendu automatiser tout cela dans votre `.bash_profile` à la 
 #.bash_profile
 alias ff=/opt/freefem/bin/FreeFem++
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/freefem/lib/ff++/3.61/lib
-```
+``` -->
