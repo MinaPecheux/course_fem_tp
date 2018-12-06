@@ -124,9 +124,10 @@ Vh<complex> uh,vh;
 Vh<complex> uabs = abs(uh + uinc);
 Vh<complex> ure = real(uh);
 ```
-Vous pouvez exporter le résultat au format GMSH (mais Paraview fait un meilleur boulot !) avec 
+Vous pouvez exporter le résultat au format GMSH (mais Paraview fait un meilleur boulot !). Pour cela, télécharger [le fichier gmshExport.idp](https://github.com/Bertbk/ff_gmsh/blob/master/gmshExport.idp) 
 ```
 //Exporter en GMSH (avec gmshExport.idp)
+include "gmshExport.idp";
 gmshExport(Th, uh[], "uh.pos");
 gmshExport(Th, ure[], "ure.pos");
 gmshExport(Th, uabs[], "uabs.pos");
@@ -146,3 +147,4 @@ Toujours en dimension 2, dessiner un (joli) sous-marin entouré d'une ellipse. F
 
 ### Mécanique des fluides
 
+TODO:
