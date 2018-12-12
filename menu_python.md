@@ -17,7 +17,7 @@ type = "docs"  # Do not modify.
 # Add menu entry to sidebar.
 [menu.fem_tp]
   identifier = "python"
-  name = "Python"
+  name = "Python : Assemblage"
   url = ""
   weight = 30
 
