@@ -20,7 +20,7 @@ math = true
 [menu.fem_tp]
   parent = "python"
   identifier = "python_overview"
-  name = "Getting Started"
+  name = "Projet"
   weight = 10
 
 +++
