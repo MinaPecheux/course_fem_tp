@@ -36,7 +36,7 @@ Pour cette partie nous utilisons deux logiciels :
 
 ## Partie 2 : l'assemblage en Python
 
-En cours de construction...
+Pour cette partie vous devez implémenter un assembleur éléments finis en Python, dont le maillage sera généré par GMSH et la solution lisible par [Paraview](https://www.paraview.org).
 
 ## Sur les machines de Polytech...
 
