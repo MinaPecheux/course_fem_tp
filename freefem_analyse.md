@@ -121,7 +121,7 @@ a(u,v) &=& \dsp\int\_{\Omega}\nabla u(\xx)\cdot\nabla v(\xx)\diff \xx +\int\_{\O
 \ell(v) &=& \dsp\int\_{\Omega}f(\xx)v(\xx)\diff\xx
 \end{array}
 $$
-Nous avons vu (ou admettons) que cette formulation variationnelle (qui n'en est pas vraiment une) admet une unique solution. Nous rappelons que $\Hoz$ est l'espace des fonctions $v\in\Ho$ dont la trace $v|\_{\partial\Omega}$ sur $\partial\Omega$ est nulle. Dans FreeFem, cette condition est rajoutée dans la formulation faible par `+on(Th, LabelDuBord, uh=0.)` où `LabelDuBord` est le numéro du (ou des !) bord(s) sur lesquels s'applique la condition de Dirichlet.
+Nous avons vu (ou admettons) que cette formulation variationnelle (qui n'en est pas vraiment une) admet une unique solution. Nous rappelons que $\Hoz$ est l'espace des fonctions $v\in\Ho$ dont la trace $v|\_{\partial\Omega}$ sur $\partial\Omega$ est nulle. Dans FreeFem, cette condition est rajoutée dans la formulation faible par `+on(L1,L2,L3,..., uh=0.)` où `L1,L2,L3,...` sont les numéros des bords sur lesquels s'applique la condition de Dirichlet.
 
 {{% alert exercise %}}
   À l'aide du TP précédent, résolvez ce problème dans FreeFem++. Plus précisément, n'oubliez pas de :
