@@ -41,15 +41,15 @@ $\newcommand{\normH}[1]{\norm{#1}\_{\Ho}}$
 
 ## Objectifs
 
-Le but de ce projet est de résoudre le problème de diffraction d'une onde acoustique par un sous-marin par la méthode des éléments finis $\Pb\_1$-Lagrange. Les détails mathématiques sont présentés dans [la partie FreeFem]({{<relref "freefem_gmsh.md#sous-marin">}}). En bref, vous devez :
+Le but de ce projet est de résoudre le problème de diffraction d'une onde acoustique par un sous-marin par la méthode des éléments finis $\Pb\_1$-Lagrange, dont [voici les détails mathématiques]({{<relref "freefem_gmsh.md#sous-marin">}}). En bref, vous devez :
 
-1. Générer le maillage sur GMSH
-1. Implémenter un assembleur éléments finis $\Pb\_1$ en 2D et en Python, *from scratch*
-2. Visualiser la solution obtenue par votre code sur ParaView
+1. Générer le **maillage sur GMSH**
+1. Implémenter un assembleur éléments finis $\Pb\_1$ en 2D et **en Python**, *from scratch*
+2. Visualiser la solution obtenue par votre code **sur ParaView**
 
 ## Maillage 
 
-Il sera généré par GMSH. Vous devez donc implémenter une fonction de lecture de [fichier .msh]({{<ref "/course/gmsh/basics_meshformatv2.md">}}). N'oubliez pas que le label `Physical` pourra être utile. La numérotation des points et des éléments est à votre discrétion (non nécessairement identique à celle de GMSH)
+Il sera généré par GMSH. Vous devez donc implémenter une fonction de lecture de [fichier `.msh`]({{<ref "/course/gmsh/basics_meshformatv2.md">}}). N'oubliez pas que le label `Physical` sera util et doit donc être stocké dans votre code Python. La numérotation des points et des éléments est à votre discrétion (non nécessairement identique à celle de GMSH).
 
 ## Bibliothèques
 
@@ -60,22 +60,27 @@ Voici une liste de bibliothèques Python que vous pouvez utiliser. Libre à vous
 
 ## Contraintes
 
-### De temps
+### Pratique
 
-Vous avez jusqu'au **dimanche 27 janvier inclus** pour rendre votre code.
+1. Deadline : Vous avez jusqu'au **dimanche 27 janvier inclus** pour m'envoyer votre code, soit par email soit par lien vers dépôt git (préférable).
+2. Vous pouvez réaliser ce projet à 2, mais chaque participant(e) **doit être actif/active** et **connaître le code**.
+3. Format : plusieurs solutions :
+  - Vos **fichiers et script Python** `*.py` le tout complété par un **fichier README** court et efficace expliquant comment lancer le (ou les) programme(s) ainsi que la structure globale de votre code. La personne qui réceptionne votre code (*i.e.* moi) ne doit passer plus de 2 minutes pour comprendre comment lancer le programme, sinon il (rappel : moi) arrête et passe au suivant. 
+  - **Notebook Jupyter** (ou autre) mais alors complété par des explications (sinon à quoi bon un Notebook ?).
 
 ### De programmation
 
-1. Votre code doit être propre, c'est à dire :
-  1. Commenté
-  2. Structuré : pas de mono-fichier de 1000lignes
-  3. Lisible : les variables et les fonctions ont un nom *compréhensible* par un humain tel que moi
-  4. Compartimenté : utilisez des classes
-2. En plus de la matrice de la formulation faible lié au problème considéré, votre programme doit pouvoir calculer **séparément** :
+1. Votre code doit être **propre**, c'est à dire :
+  1. **Commenté**
+  2. **Structuré** : pas de mono-fichier de 1000lignes
+  3. **Lisible** : les variables et les fonctions ont un nom *compréhensible* par un humain tel que moi
+  4. Compartimenté : utilisez **des classes** et des **méthodes**
+2. En plus de la matrice de la formulation faible lié au problème considéré, votre programme doit pouvoir calculer **séparément** (*i.e* posséder des fonctions à part) :
   1. La matrice de masse
   2. La matrice de rigité
   3. Le membre de droite
-3. Performant : la matrice du système étant creuse, elle sera stockée sous format creux CSR
+3. (Relativement) **Performant** : la matrice du système étant creuse, elle sera stockée **sous format creux**, COO ou CSR à votre aide. Vous devez en revanche pouvoir m'expliquer votre choix.
+4. Je dois pouvoir fournir **mon propre maillage** et faire fonctionner votre code dessus.
 
 {{% alert note %}}
 Pour pouvoir utiliser Scipy et ses [**matrices creuses**](https://docs.scipy.org/doc/scipy/reference/sparse.html) (*sparse matrices* en anglais), nous devons utiliser **Python2** (et non Python3). Le plus pratique pour construire la matrice du système au format CSR est certainement de créer une matrice [au format COO](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.html#scipy.sparse.coo_matrix) en ajoutant chaque contribution élémentaire à la suite (sans les sommer) puis de [convertir la matrice au format CSR](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.coo_matrix.tocsr.html#scipy.sparse.coo_matrix.tocsr) à l'aide de `tocsr`. La sommation sera automatiquement effectuée par Scipy.
