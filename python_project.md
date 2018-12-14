@@ -75,7 +75,11 @@ Vous avez jusqu'au **dimanche 27 janvier inclus** pour rendre votre code.
   1. La matrice de masse
   2. La matrice de rigité
   3. Le membre de droite
-4. Quitte à être moderne, autant utiliser Python3
+3. Performant : la matrice du système étant creuse, elle sera stockée sous format creux
+
+{{% alert note %}}
+Pour pouvoir utiliser Scipy et ses [**matrices creuses**](https://docs.scipy.org/doc/scipy/reference/sparse.html) (*sparse matrices* en anglais), nous devons utiliser **Python2** .
+{{% /alert %}}
 
 ## Astuces
 
