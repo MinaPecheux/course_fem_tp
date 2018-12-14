@@ -71,11 +71,8 @@ a(u,v) &=& \dsp \int\_{\Omega} \nabla u(\xx)\cdot \conj{\nabla v(\xx)}\diff \xx 
 \ell(v) &=& \dsp \int\_{\Omega} f(\xx)\conj{v(\xx)}\diff s(\xx).
 \end{array}
 $$
-Nous avons vu en cours que ce problème admet une unique solution.
+Nous avons vu en cours que ce problème admet une unique solution (mais nous ne la connaissons pas...).
 
-{{% alert exercise %}}
-Prenons $f(x,y) = (2\pi^2+1)\sin(\pi x)\sin(\pi y)$. Montrez que la solution au problème \eqref{eq:pb} est $u(x,y) = \sin(\pi x)\sin(\pi y)$.
-{{% /alert %}}
 
 ## Maillage : `mesh`
 
@@ -147,8 +144,7 @@ plot(gh, fill=true, dim=3, wait=true); // Affichage
 {{% alert exercise %}}
 Recopiez le code ci-dessus (ainsi que ce qui concerne l'espace fonctionnel) pour afficher la fonction $g$, puis :
 
-1. Modifiez l'espace fonctionnel pour prendre des éléments finis $\Pb\_0$ (constant par morceau), observez le résultat sur l'interpolée de $g$.
-2. De la même manière, affichez l'interpolation de la fonction $h(x,y) = \sin(\pi x).\sin(\pi y)$, en $\Pb\_1$ et $\Pb\_2$.
+Modifiez l'espace fonctionnel pour prendre des éléments finis $\Pb\_0$ (constant par morceau), observez le résultat sur l'interpolée de $g$.
 {{% /alert %}}
 
 ### Structure d'une fonction éléments finis
