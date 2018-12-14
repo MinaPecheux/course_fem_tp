@@ -56,7 +56,7 @@ Line(3) = {3,4};
 Line(4) = {4,1};
 Line Loop(1) = {1,2,3,4};
 Surface(1) = {1};
-Physical Surface(10) = {1} // Surface du carré
+Physical Surface(10) = {1}; // Surface du carré
 Physical Line(1) = {1}; // Bord 1 ("bas")
 Physical Line(2) = {2}; // Bord 2 ("droite")
 Physical Line(3) = {3}; // Bord 3 ("haut")
@@ -68,8 +68,8 @@ Ouvrons maintenant un fichier FreeFem++ dont l'extension par défaut est `.edp`.
 
 ```cpp
   load "gmsh";
-  mesh Th=gmshread("carre.msh");
-  plot(Th, wait3= true, cmm = "Mon superbe maillage");
+  mesh Th=gmshload("carre.msh");
+  plot(Th, wait= true, cmm = "Mon superbe maillage");
 ```
 
 La quantité `Th` est de type `mesh`. Nous pouvons accéder à certaines données de ce maillage comme le nombre de triangles `Th.nt` ou de sommets `Th.nv` (*vertices*). D'autre part, `Th[k]` est le $k^{eme}$ triangle du maillage et l'on peut accéder à certaines valeurs le concernant :
