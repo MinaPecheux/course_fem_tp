@@ -49,14 +49,14 @@ Le but de ce projet est de résoudre le problème de diffraction d'une onde acou
 
 ## Maillage 
 
-Il sera généré par GMSH. Vous devez donc implémenter une fonction de lecture de [fichier `.msh`]({{<ref "/course/gmsh/basics_meshformatv2.md">}}). N'oubliez pas que le label `Physical` sera util et doit donc être stocké dans votre code Python. La numérotation des points et des éléments est à votre discrétion (non nécessairement identique à celle de GMSH).
+Il sera généré par GMSH. Vous devez donc implémenter une fonction de lecture de [fichier `.msh`]({{<ref "/course/gmsh/basics_meshformatv2.md">}}). N'oubliez pas que le label `Physical` sera utile et doit donc être stocké dans votre code Python. La numérotation des points et des éléments est à votre discrétion (non nécessairement identique à celle de GMSH).
 
 ## Bibliothèques
 
 Voici une liste de bibliothèques Python que vous pouvez utiliser. Libre à vous d'en utiliser d'autres si vous le souhaitez :
 
 1. Algèbre linéaire : [Numpy](https://www.numpy.org/)
-2. Affichage (rappel : affichage final sue Paraview) : [Matplotlib](https://matplotlib.org)
+2. Affichage (rappel : affichage final sur Paraview) : [Matplotlib](https://matplotlib.org)
 
 ## Contraintes
 
@@ -72,12 +72,12 @@ Voici une liste de bibliothèques Python que vous pouvez utiliser. Libre à vous
 
 1. Votre code doit être **propre**, c'est à dire :
   1. **Commenté**
-  2. **Structuré** : pas de mono-fichier de 1000lignes
+  2. **Structuré** : pas de mono-fichier de 1000 lignes
   3. **Lisible** : les variables et les fonctions ont un nom *compréhensible* par un humain tel que moi
   4. Compartimenté : utilisez **des classes** et des **méthodes**
 2. En plus de la matrice de la formulation faible lié au problème considéré, votre programme doit pouvoir calculer **séparément** (*i.e* posséder des fonctions à part) :
   1. La matrice de masse
-  2. La matrice de rigité
+  2. La matrice de rigidité
   3. Le membre de droite
 3. (Relativement) **Performant** : la matrice du système étant creuse, elle sera stockée **sous format creux**, COO ou CSR à votre aide. Vous devez en revanche pouvoir m'expliquer votre choix.
 4. Je dois pouvoir fournir **mon propre maillage** et faire fonctionner votre code dessus.
